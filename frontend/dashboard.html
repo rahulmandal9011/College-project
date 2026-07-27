@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | LifeStream</title>
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Dashboard CSS -->
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================
+        SIDEBAR
+===================================== -->
+
+    <div class="sidebar">
+
+        <h3 class="logo">
+
+            ❤️ LifeStream
+
+        </h3>
+
+        <ul>
+
+            <li>
+
+                <a href="dashboard.html">
+
+                    <i class="fa-solid fa-gauge"></i>
+
+                    Dashboard
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="donors.html">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    Donors
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="hospitals.html">
+
+                    <i class="fa-solid fa-hospital"></i>
+
+                    Hospitals
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="blood-requests.html">
+
+                    <i class="fa-solid fa-droplet"></i>
+
+                    Blood Requests
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#">
+
+                    <i class="fa-solid fa-calendar"></i>
+
+                    Blood Camps
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    Reports
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    Settings
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="login.html">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Logout
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- =====================================
+        MAIN CONTENT
+===================================== -->
+
+    <div class="main-content">
+
+        <!-- Top Navbar -->
+
+        <nav class="topbar">
+
+            <div>
+
+                <h2>
+
+                    Welcome Rahul 👋
+
+                </h2>
+
+            </div>
+
+            <div class="top-icons">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <img src="images/users/user.png" class="profile-img">
+
+            </div>
+
+        </nav>
+
+        <!-- Dashboard Cards -->
+
+        <div class="container-fluid mt-4">
+
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 mb-4">
+
+                    <div class="dashboard-card">
+
+                        <i class="fa-solid fa-user card-icon"></i>
+
+                        <h2>
+
+                            2541
+
+                        </h2>
+
+                        <p>
+
+                            Total Donors
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+
+                    <div class="dashboard-card">
+
+                        <i class="fa-solid fa-hospital card-icon"></i>
+
+                        <h2>
+
+                            126
+
+                        </h2>
+
+                        <p>
+
+                            Hospitals
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+
+                    <div class="dashboard-card">
+
+                        <i class="fa-solid fa-droplet card-icon"></i>
+
+                        <h2>
+
+                            48
+
+                        </h2>
+
+                        <p>
+
+                            Active Requests
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+
+                    <div class="dashboard-card">
+
+                        <i class="fa-solid fa-heart card-icon"></i>
+
+                        <h2>
+
+                            1892
+
+                        </h2>
+
+                        <p>
+
+                            Completed Donations
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- =====================================
+        RECENT BLOOD REQUESTS
+===================================== -->
+
+            <div class="row mt-4">
+
+                <div class="col-lg-8 mb-4">
+
+                    <div class="card shadow">
+
+                        <div class="card-header bg-danger text-white">
+
+                            <h4>
+
+                                Recent Blood Requests
+
+                            </h4>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="table-responsive">
+
+                                <table class="table table-hover">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>Patient</th>
+
+                                            <th>Blood</th>
+
+                                            <th>Hospital</th>
+
+                                            <th>Emergency</th>
+
+                                            <th>Status</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                        <tr>
+
+                                            <td>Amit Sharma</td>
+
+                                            <td>O+</td>
+
+                                            <td>Apollo</td>
+
+                                            <td>
+
+                                                <span class="badge bg-danger">
+
+                                                    Critical
+
+                                                </span>
+
+                                            </td>
+
+                                            <td>
+
+                                                <span class="badge bg-warning text-dark">
+
+                                                    Pending
+
+                                                </span>
+
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <td>Neha Singh</td>
+
+                                            <td>B+</td>
+
+                                            <td>Fortis</td>
+
+                                            <td>
+
+                                                <span class="badge bg-warning text-dark">
+
+                                                    High
+
+                                                </span>
+
+                                            </td>
+
+                                            <td>
+
+                                                <span class="badge bg-success">
+
+                                                    Accepted
+
+                                                </span>
+
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <td>Rakesh Patel</td>
+
+                                            <td>A-</td>
+
+                                            <td>Ruby Hall</td>
+
+                                            <td>
+
+                                                <span class="badge bg-info">
+
+                                                    Medium
+
+                                                </span>
+
+                                            </td>
+
+                                            <td>
+
+                                                <span class="badge bg-primary">
+
+                                                    Processing
+
+                                                </span>
+
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <td>Priya Joshi</td>
+
+                                            <td>AB+</td>
+
+                                            <td>AIIMS</td>
+
+                                            <td>
+
+                                                <span class="badge bg-success">
+
+                                                    Normal
+
+                                                </span>
+
+                                            </td>
+
+                                            <td>
+
+                                                <span class="badge bg-success">
+
+                                                    Completed
+
+                                                </span>
+
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-lg-4 mb-4">
+
+                    <div class="card shadow">
+
+                        <div class="card-header bg-success text-white">
+
+                            <h4>
+
+                                Recent Donors
+
+                            </h4>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="d-flex justify-content-between mb-3">
+
+                                <div>
+
+                                    <b>Rahul Mandal</b>
+
+                                    <br>
+
+                                    <small>O+ • Mumbai</small>
+
+                                </div>
+
+                                <span class="badge bg-success">
+
+                                    Available
+
+                                </span>
+
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between mb-3">
+
+                                <div>
+
+                                    <b>Rohit Verma</b>
+
+                                    <br>
+
+                                    <small>B+ • Pune</small>
+
+                                </div>
+
+                                <span class="badge bg-success">
+
+                                    Available
+
+                                </span>
+
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between mb-3">
+
+                                <div>
+
+                                    <b>Priya Patel</b>
+
+                                    <br>
+
+                                    <small>A+ • Nashik</small>
+
+                                </div>
+
+                                <span class="badge bg-warning text-dark">
+
+                                    Busy
+
+                                </span>
+
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between">
+
+                                <div>
+
+                                    <b>Neha Shah</b>
+
+                                    <br>
+
+                                    <small>AB+ • Surat</small>
+
+                                </div>
+
+                                <span class="badge bg-success">
+
+                                    Available
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- =====================================
+        ANALYTICS
+===================================== -->
+
+            <div class="row">
+
+                <div class="col-lg-8 mb-4">
+
+                    <div class="card shadow">
+
+                        <div class="card-header bg-primary text-white">
+
+                            <h4>
+
+                                Donation Analytics
+
+                            </h4>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <canvas id="donationChart" height="120"></canvas>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4 mb-4">
+
+                    <div class="card shadow">
+
+                        <div class="card-header bg-warning">
+
+                            <h4>
+
+                                Blood Groups
+
+                            </h4>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <canvas id="bloodChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- =====================================
+        NOTIFICATIONS
+===================================== -->
+
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <div class="card shadow">
+
+                        <div class="card-header bg-info text-white">
+
+                            <h4>
+
+                                Recent Notifications
+
+                            </h4>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <ul class="list-group">
+
+                                <li class="list-group-item">
+
+                                    🩸 New blood request received from Apollo Hospital.
+
+                                </li>
+
+                                <li class="list-group-item">
+
+                                    ✅ Blood donation completed successfully.
+
+                                </li>
+
+                                <li class="list-group-item">
+
+                                    🏥 Fortis Hospital added to the system.
+
+                                </li>
+
+                                <li class="list-group-item">
+
+                                    🎉 15 new donors registered today.
+
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- =====================================
+        FOOTER
+===================================== -->
+
+            <footer class="text-center mt-5 mb-3">
+
+                <hr>
+
+                <p>
+
+                    © 2026 LifeStream | Blood Donation Management System
+
+                </p>
+
+            </footer>
+
+        </div>
+
+        <!-- Main Content End -->
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

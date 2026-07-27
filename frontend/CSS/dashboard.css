@@ -1,0 +1,355 @@
+/* =====================================
+   Global
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    background: #f5f7fb;
+
+}
+
+/* =====================================
+   Sidebar
+===================================== */
+
+.sidebar {
+
+    position: fixed;
+
+    left: 0;
+
+    top: 0;
+
+    width: 260px;
+
+    height: 100vh;
+
+    background: #dc3545;
+
+    color: #fff;
+
+    overflow-y: auto;
+
+    z-index: 1000;
+
+}
+
+.logo {
+
+    text-align: center;
+
+    padding: 25px 15px;
+
+    font-weight: bold;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+
+}
+
+.sidebar ul {
+
+    list-style: none;
+
+    padding: 20px 0;
+
+}
+
+.sidebar ul li {
+
+    margin-bottom: 5px;
+
+}
+
+.sidebar ul li a {
+
+    display: block;
+
+    padding: 15px 25px;
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: .3s;
+
+}
+
+.sidebar ul li a i {
+
+    width: 30px;
+
+}
+
+.sidebar ul li a:hover {
+
+    background: rgba(255, 255, 255, .15);
+
+    padding-left: 35px;
+
+}
+
+/* =====================================
+   Main Content
+===================================== */
+
+.main-content {
+
+    margin-left: 260px;
+
+    min-height: 100vh;
+
+    padding: 20px;
+
+}
+
+/* =====================================
+   Topbar
+===================================== */
+
+.topbar {
+
+    background: #fff;
+
+    border-radius: 12px;
+
+    padding: 18px 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+
+}
+
+.topbar h2 {
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+}
+
+.top-icons {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+.top-icons i {
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+}
+
+.profile-img {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 2px solid #dc3545;
+
+}
+
+/* =====================================
+   Dashboard Cards
+===================================== */
+
+.dashboard-card {
+
+    background: #fff;
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+
+    transition: .3s;
+
+}
+
+.dashboard-card:hover {
+
+    transform: translateY(-8px);
+
+}
+
+.card-icon {
+
+    font-size: 40px;
+
+    color: #dc3545;
+
+    margin-bottom: 20px;
+
+}
+
+.dashboard-card h2 {
+
+    font-size: 36px;
+
+    font-weight: bold;
+
+}
+
+.dashboard-card p {
+
+    margin-top: 10px;
+
+    color: #666;
+
+}
+
+/* =====================================
+   Bootstrap Cards
+===================================== */
+
+.card {
+
+    border: none;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+}
+
+.card-header {
+
+    font-weight: 600;
+
+    font-size: 18px;
+
+}
+
+/* =====================================
+   Tables
+===================================== */
+
+.table th {
+
+    font-weight: 600;
+
+}
+
+.table td {
+
+    vertical-align: middle;
+
+}
+
+/* =====================================
+   Notification List
+===================================== */
+
+.list-group-item {
+
+    border: none;
+
+    padding: 18px;
+
+}
+
+/* =====================================
+   Chart Area
+===================================== */
+
+canvas {
+
+    width: 100% !important;
+
+}
+
+/* =====================================
+   Footer
+===================================== */
+
+footer {
+
+    color: #666;
+
+    padding-bottom: 20px;
+
+}
+
+/* =====================================
+   Scrollbar
+===================================== */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #dc3545;
+
+    border-radius: 10px;
+
+}
+
+/* =====================================
+   Mobile
+===================================== */
+
+@media(max-width:992px) {
+
+    .sidebar {
+
+        width: 100%;
+
+        height: auto;
+
+        position: relative;
+
+    }
+
+    .main-content {
+
+        margin-left: 0;
+
+    }
+
+    .topbar {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+        text-align: center;
+
+    }
+
+    .dashboard-card {
+
+        margin-bottom: 20px;
+
+    }
+
+}

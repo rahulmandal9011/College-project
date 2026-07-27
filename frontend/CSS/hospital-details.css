@@ -1,0 +1,47 @@
+body{
+background:#f8f9fa;
+font-family:Poppins,sans-serif;
+}
+
+.banner-image{
+height:450px;
+object-fit:cover;
+}
+
+.facility-card{
+background:white;
+padding:30px;
+text-align:center;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.facility-card:hover{
+transform:translateY(-8px);
+}
+
+.facility-card i{
+font-size:45px;
+color:#dc3545;
+margin-bottom:15px;
+}
+
+.doctor-card img{
+height:300px;
+object-fit:cover;
+}
+
+footer{
+background:#212529;
+}
+
+footer a:hover{
+color:#dc3545 !important;
+}
+
+table td,
+table th{
+vertical-align:middle;
+}
+

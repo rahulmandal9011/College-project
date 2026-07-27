@@ -1,0 +1,568 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:#f8fafc;
+
+}
+
+.navbar-brand{
+
+    font-size:30px;
+    font-weight:700;
+
+}
+
+.nav-link{
+
+    font-weight:500;
+    margin-left:15px;
+
+}
+
+.hero{
+
+    height:90vh;
+
+    background:url("../images/hero1.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    position:relative;
+
+}
+
+.overlay{
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.55);
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.hero h1{
+
+    color:white;
+
+    font-size:60px;
+
+    font-weight:700;
+
+}
+
+.hero span{
+
+    color:#ff4d4d;
+
+}
+
+.hero p{
+
+    color:white;
+
+    margin:25px 0;
+
+    font-size:18px;
+
+}
+
+.btn{
+
+    border-radius:30px;
+
+    padding:12px 28px;
+
+}
+
+/* Hero Slider */
+
+.hero-image{
+
+    height:90vh;
+
+    object-fit:cover;
+
+    filter:brightness(50%);
+
+}
+
+.carousel-caption{
+
+    bottom:20%;
+
+    text-align:left;
+
+}
+
+.carousel-caption h1{
+
+    font-size:65px;
+
+    font-weight:700;
+
+}
+
+.carousel-caption h2{
+
+    color:#ff4d4d;
+
+    font-size:50px;
+
+    font-weight:700;
+
+}
+
+.carousel-caption p{
+
+    font-size:20px;
+
+    max-width:600px;
+
+    margin:20px 0;
+
+}
+
+.carousel-caption .btn{
+
+    padding:12px 30px;
+
+    border-radius:40px;
+
+}
+/* ===========================
+   Statistics
+=========================== */
+
+.statistics{
+
+    background:#ffffff;
+
+}
+
+.stat-card{
+
+    background:#fff;
+
+    padding:35px 20px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.stat-card i{
+
+    font-size:45px;
+
+    color:#dc2626;
+
+    margin-bottom:20px;
+
+}
+
+.stat-card h2{
+
+    font-size:36px;
+
+    font-weight:700;
+
+    color:#1f2937;
+
+}
+
+.stat-card p{
+
+    color:#6b7280;
+
+    font-size:17px;
+
+    margin-top:10px;
+
+}
+/* ===========================
+   Featured Hospitals
+=========================== */
+
+.section-title{
+
+    font-size:36px;
+
+    font-weight:700;
+
+    color:#1f2937;
+
+}
+
+.section-subtitle{
+
+    color:#6b7280;
+
+}
+
+.hospital-card{
+
+    background:#fff;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.hospital-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.hospital-img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+}
+
+.hospital-body{
+
+    padding:20px;
+
+}
+
+.hospital-body h5{
+
+    font-weight:600;
+
+}
+
+.hospital-body p{
+
+    color:#555;
+
+    margin-bottom:10px;
+
+}
+
+.badge{
+
+    margin-right:5px;
+
+    padding:8px 10px;
+
+    font-size:12px;
+
+}
+/* ===========================
+   Blood Requests
+=========================== */
+
+.blood-request{
+
+    background:#f8fafc;
+
+}
+
+.request-card{
+
+    background:#fff;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    position:relative;
+
+}
+
+.request-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.urgency{
+
+    position:absolute;
+
+    right:20px;
+
+    top:20px;
+
+}
+
+.blood-group{
+
+    font-size:42px;
+
+    color:#dc2626;
+
+    font-weight:700;
+
+    margin:20px 0;
+
+}
+
+.request-card p{
+
+    color:#666;
+
+    margin-bottom:10px;
+
+}
+
+.request-card i{
+
+    color:#dc2626;
+
+    width:22px;
+
+}
+
+
+/* ===========================
+   Top Blood Donors
+=========================== */
+
+.top-donors{
+
+    background:#ffffff;
+
+}
+
+.donor-card{
+
+    background:#fff;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.donor-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.donor-img{
+
+    width:100%;
+
+    height:280px;
+
+    object-fit:cover;
+
+}
+
+.donor-body{
+
+    padding:20px;
+
+}
+
+.donor-body h5{
+
+    font-weight:600;
+
+}
+
+.donor-body p{
+
+    color:#666;
+
+    margin-bottom:10px;
+
+}
+
+.donor-body i{
+
+    color:#dc2626;
+
+    width:20px;
+
+}
+/* ===========================
+   How It Works
+=========================== */
+
+.work-card{
+
+    background:#fff;
+
+    padding:35px 20px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.work-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.work-card i{
+
+    font-size:50px;
+
+    color:#dc2626;
+
+    margin-bottom:20px;
+
+}
+/* ===========================
+   Blood Facts
+=========================== */
+
+.fact-card{
+
+    background:#dc2626;
+
+    color:#fff;
+
+    padding:35px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.fact-card:hover{
+
+    transform:scale(1.03);
+
+}
+
+.fact-card h4{
+
+    margin:20px 0;
+
+}
+/* ===========================
+   Emergency Banner
+=========================== */
+
+.emergency-banner{
+
+    background:#dc2626;
+
+    color:#fff;
+
+    padding:70px 20px;
+
+}
+
+.emergency-banner h2{
+
+    font-size:45px;
+
+    font-weight:700;
+
+}
+
+.emergency-banner p{
+
+    margin:20px 0;
+
+    font-size:20px;
+
+}
+/* ===========================
+   Footer
+=========================== */
+
+.footer{
+
+    background:#1f2937;
+
+    color:#fff;
+
+    padding:60px 0;
+
+}
+
+.footer h5,
+.footer h3{
+
+    margin-bottom:20px;
+
+}
+
+.footer ul{
+
+    list-style:none;
+
+    padding:0;
+
+}
+
+.footer ul li{
+
+    margin-bottom:10px;
+
+}
+
+.footer ul li a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+}
+
+.footer i{
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.footer i:hover{
+
+    color:#dc2626;
+
+}

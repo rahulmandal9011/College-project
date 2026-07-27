@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LifeStream - Blood Donation Management System</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- ===========================
+            Navbar
+    ============================ -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="#">
+                ❤️ LifeStream
+            </a>
+
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto align-items-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="donors.html">Donors</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="hospitals.html">Hospitals</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="requests.html">Blood Requests</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+
+                    <li class="nav-item mx-3">
+
+                        <input
+                            class="form-control"
+                            type="search"
+                            placeholder="Search Hospital">
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="login.html"
+                            class="btn btn-outline-danger me-2">
+
+                            Login
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="register.html"
+                            class="btn btn-danger">
+
+                            Register
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- ===========================
+            Hero Slider
+    ============================ -->
+
+    <section>
+
+        <div id="heroSlider"
+            class="carousel slide carousel-fade"
+            data-bs-ride="carousel"
+            data-bs-interval="4000">
+
+            <div class="carousel-inner">
+
+                <!-- Slide 1 -->
+
+                <div class="carousel-item active">
+
+                    <img src="images/hero1.jpg" class="hero-image d-block w-100" alt="Hero 1">
+                    <div class="carousel-caption">
+
+                        <h1>Donate Blood</h1>
+
+                        <h2>Save Lives</h2>
+
+                        <p>
+
+                            Every donation can save up to
+                            three lives. Become someone's hero today.
+
+                        </p>
+
+                        <a href="register.html"
+                            class="btn btn-danger btn-lg">
+
+                            Become Donor
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- Slide 2 -->
+
+                <div class="carousel-item">
+
+                    <img src="images/hero2.jpg"
+                        class="hero-image d-block w-100">
+
+                    <div class="carousel-caption">
+
+                        <h1>Find Verified</h1>
+
+                        <h2>Hospitals</h2>
+
+                        <p>
+
+                            Search nearby hospitals with
+                            available blood inventory.
+
+                        </p>
+
+                        <a href="hospitals.html"
+                            class="btn btn-primary btn-lg">
+
+                            Find Hospital
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- Slide 3 -->
+
+                <div class="carousel-item">
+
+                    <img src="images/hero3.jpg"
+                        class="hero-image d-block w-100">
+
+                    <div class="carousel-caption">
+
+                        <h1>Emergency</h1>
+
+                        <h2>Blood Request</h2>
+
+                        <p>
+
+                            Raise emergency blood requests
+                            and connect with nearby donors.
+
+                        </p>
+
+                        <a href="requests.html"
+                            class="btn btn-warning btn-lg">
+
+                            Request Blood
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Previous -->
+
+            <button class="carousel-control-prev"
+                type="button"
+                data-bs-target="#heroSlider"
+                data-bs-slide="prev">
+
+                <span class="carousel-control-prev-icon"></span>
+
+            </button>
+
+            <!-- Next -->
+
+            <button class="carousel-control-next"
+                type="button"
+                data-bs-target="#heroSlider"
+                data-bs-slide="next">
+
+                <span class="carousel-control-next-icon"></span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===========================
+        Statistics Section
+=========================== -->
+
+
+
+<section class="statistics py-5">
+
+    <div class="container">
+
+        <div class="row text-center g-4">
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="stat-card">
+
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+
+                    <h2>2,560</h2>
+
+                    <p>Registered Donors</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="stat-card">
+
+                    <i class="fa-solid fa-hospital"></i>
+
+                    <h2>185</h2>
+
+                    <p>Hospitals</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="stat-card">
+
+                    <i class="fa-solid fa-droplet"></i>
+
+                    <h2>1,245</h2>
+
+                    <p>Blood Units</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="stat-card">
+
+                    <i class="fa-solid fa-truck-medical"></i>
+
+                    <h2>38</h2>
+
+                    <p>Emergency Requests</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+        Featured Hospitals
+=========================== -->
+
+<section class="featured-hospitals py-5">
+
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+
+                <h2 class="section-title">Featured Hospitals</h2>
+
+                <p class="section-subtitle">
+                    Find trusted hospitals with blood availability.
+                </p>
+
+            </div>
+
+            <a href="hospitals.html" class="btn btn-outline-danger">
+                View All
+            </a>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Hospital 1 -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="hospital-card">
+
+                    <img src="images/hospital1.jpg"
+                        class="hospital-img"
+                        alt="Apollo Hospital">
+
+                    <div class="hospital-body">
+
+                        <h5>Apollo Hospital</h5>
+
+                        <p>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Mumbai
+                        </p>
+
+                        <p>
+                            ⭐ 4.8
+                        </p>
+
+                        <p>
+
+                            <span class="badge bg-danger">A+</span>
+
+                            <span class="badge bg-primary">B+</span>
+
+                            <span class="badge bg-success">O+</span>
+
+                            <span class="badge bg-warning text-dark">AB+</span>
+
+                        </p>
+
+                        <button class="btn btn-danger w-100">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Hospital 2 -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="hospital-card">
+
+                    <img src="images/hospital2.jpg"
+                        class="hospital-img"
+                        alt="Fortis">
+
+                    <div class="hospital-body">
+
+                        <h5>Fortis Hospital</h5>
+
+                        <p>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Pune
+
+                        </p>
+
+                        <p>⭐ 4.7</p>
+
+                        <p>
+
+                            <span class="badge bg-danger">O-</span>
+
+                            <span class="badge bg-primary">B+</span>
+
+                            <span class="badge bg-success">A+</span>
+
+                        </p>
+
+                        <button class="btn btn-danger w-100">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Hospital 3 -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="hospital-card">
+
+                    <img src="images/hospital3.jpg"
+                        class="hospital-img"
+                        alt="AIIMS">
+
+                    <div class="hospital-body">
+
+                        <h5>AIIMS</h5>
+
+                        <p>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Delhi
+
+                        </p>
+
+                        <p>⭐ 4.9</p>
+
+                        <p>
+
+                            <span class="badge bg-danger">A-</span>
+
+                            <span class="badge bg-success">O+</span>
+
+                            <span class="badge bg-primary">AB+</span>
+
+                        </p>
+
+                        <button class="btn btn-danger w-100">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Hospital 4 -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="hospital-card">
+
+                    <img src="images/hospital4.jpg"
+                        class="hospital-img"
+                        alt="Ruby Hall">
+
+                    <div class="hospital-body">
+
+                        <h5>Ruby Hall Clinic</h5>
+
+                        <p>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Nashik
+
+                        </p>
+
+                        <p>⭐ 4.6</p>
+
+                        <p>
+
+                            <span class="badge bg-danger">B-</span>
+
+                            <span class="badge bg-success">O+</span>
+
+                            <span class="badge bg-warning text-dark">AB-</span>
+
+                        </p>
+
+                        <button class="btn btn-danger w-100">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+        Emergency Blood Requests
+=========================== -->
+
+<section class="blood-request py-5 bg-light">
+
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+
+                <h2 class="section-title">
+                    Emergency Blood Requests
+                </h2>
+
+                <p class="section-subtitle">
+                    Latest blood requests from nearby hospitals.
+                </p>
+
+            </div>
+
+            <a href="requests.html" class="btn btn-outline-danger">
+                View All
+            </a>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Request 1 -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="request-card">
+
+                    <span class="badge bg-danger urgency">URGENT</span>
+
+                    <h3 class="blood-group">A+</h3>
+
+                    <h5>Rahul Sharma</h5>
+
+                    <p><i class="fa-solid fa-hospital"></i> Apollo Hospital</p>
+
+                    <p><i class="fa-solid fa-location-dot"></i> Mumbai</p>
+
+                    <p><i class="fa-solid fa-calendar"></i> Required Today</p>
+
+                    <button class="btn btn-danger w-100">
+                        Help Now
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Request 2 -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="request-card">
+
+                    <span class="badge bg-warning text-dark urgency">
+                        2 DAYS
+                    </span>
+
+                    <h3 class="blood-group">O-</h3>
+
+                    <h5>Priya Patel</h5>
+
+                    <p><i class="fa-solid fa-hospital"></i> Fortis Hospital</p>
+
+                    <p><i class="fa-solid fa-location-dot"></i> Pune</p>
+
+                    <p><i class="fa-solid fa-calendar"></i> Within 2 Days</p>
+
+                    <button class="btn btn-danger w-100">
+                        Help Now
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Request 3 -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="request-card">
+
+                    <span class="badge bg-success urgency">
+                        PLANNED
+                    </span>
+
+                    <h3 class="blood-group">AB+</h3>
+
+                    <h5>Rohan Singh</h5>
+
+                    <p><i class="fa-solid fa-hospital"></i> AIIMS</p>
+
+                    <p><i class="fa-solid fa-location-dot"></i> Delhi</p>
+
+                    <p><i class="fa-solid fa-calendar"></i> Within 5 Days</p>
+
+                    <button class="btn btn-danger w-100">
+                        Help Now
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Request 4 -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="request-card">
+
+                    <span class="badge bg-danger urgency">
+                        URGENT
+                    </span>
+
+                    <h3 class="blood-group">B+</h3>
+
+                    <h5>Amit Kumar</h5>
+
+                    <p><i class="fa-solid fa-hospital"></i> Ruby Hall</p>
+
+                    <p><i class="fa-solid fa-location-dot"></i> Nashik</p>
+
+                    <p><i class="fa-solid fa-calendar"></i> Required Today</p>
+
+                    <button class="btn btn-danger w-100">
+                        Help Now
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+        Top Blood Donors
+=========================== -->
+
+<section class="top-donors py-5">
+
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+
+                <h2 class="section-title">
+                    Top Blood Donors
+                </h2>
+
+                <p class="section-subtitle">
+                    Meet our active heroes who are ready to save lives.
+                </p>
+
+            </div>
+
+            <a href="donors.html" class="btn btn-outline-danger">
+                View All
+            </a>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Donor 1 -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="donor-card">
+
+                    <img src="images/donor1.jpg" class="donor-img">
+
+                    <div class="donor-body">
+
+                        <h5>Rahul Mandal</h5>
+
+                        <p><i class="fa-solid fa-droplet"></i> O+</p>
+
+                        <p><i class="fa-solid fa-location-dot"></i> Nashik</p>
+
+                        <p><i class="fa-solid fa-clock"></i> Last Donation : 45 Days Ago</p>
+
+                        <span class="badge bg-success mb-3">
+                            Available
+                        </span>
+
+                        <button class="btn btn-danger w-100">
+                            View Profile
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Donor 2 -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="donor-card">
+
+                    <img src="images/donor2.jpg" class="donor-img">
+
+                    <div class="donor-body">
+
+                        <h5>Priya Sharma</h5>
+
+                        <p><i class="fa-solid fa-droplet"></i> A+</p>
+
+                        <p><i class="fa-solid fa-location-dot"></i> Pune</p>
+
+                        <p><i class="fa-solid fa-clock"></i> Last Donation : 3 Months Ago</p>
+
+                        <span class="badge bg-success mb-3">
+                            Available
+                        </span>
+
+                        <button class="btn btn-danger w-100">
+                            View Profile
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Donor 3 -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="donor-card">
+
+                    <img src="images/donor3.jpg" class="donor-img">
+
+                    <div class="donor-body">
+
+                        <h5>Rohit Patil</h5>
+
+                        <p><i class="fa-solid fa-droplet"></i> B-</p>
+
+                        <p><i class="fa-solid fa-location-dot"></i> Mumbai</p>
+
+                        <p><i class="fa-solid fa-clock"></i> Last Donation : 60 Days Ago</p>
+
+                        <span class="badge bg-success mb-3">
+                            Available
+                        </span>
+
+                        <button class="btn btn-danger w-100">
+                            View Profile
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Donor 4 -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="donor-card">
+
+                    <img src="images/donor4.jpg" class="donor-img">
+
+                    <div class="donor-body">
+
+                        <h5>Neha Verma</h5>
+
+                        <p><i class="fa-solid fa-droplet"></i> AB+</p>
+
+                        <p><i class="fa-solid fa-location-dot"></i> Delhi</p>
+
+                        <p><i class="fa-solid fa-clock"></i> Last Donation : 90 Days Ago</p>
+
+                        <span class="badge bg-success mb-3">
+                            Available
+                        </span>
+
+                        <button class="btn btn-danger w-100">
+                            View Profile
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+        How It Works
+=========================== -->
+
+<section class="how-it-works py-5 bg-light">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="section-title">How LifeStream Works</h2>
+
+            <p class="section-subtitle">
+                Donate blood in four simple steps.
+            </p>
+
+        </div>
+
+        <div class="row text-center">
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="work-card">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    <h4>Register</h4>
+
+                    <p>Create your donor account in less than a minute.</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="work-card">
+
+                    <i class="fa-solid fa-magnifying-glass-location"></i>
+
+                    <h4>Search</h4>
+
+                    <p>Find nearby hospitals and blood requests.</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="work-card">
+
+                    <i class="fa-solid fa-hand-holding-droplet"></i>
+
+                    <h4>Donate</h4>
+
+                    <p>Donate blood safely and help those in need.</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="work-card">
+
+                    <i class="fa-solid fa-heart-circle-check"></i>
+
+                    <h4>Save Lives</h4>
+
+                    <p>Your donation can save up to three lives.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+        Blood Donation Facts
+=========================== -->
+
+<section class="facts py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="section-title">
+                Blood Donation Facts
+            </h2>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+
+                <div class="fact-card">
+
+                    ❤️
+
+                    <h4>Save 3 Lives</h4>
+
+                    <p>One blood donation can help up to three patients.</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                <div class="fact-card">
+
+                    🩸
+
+                    <h4>Donate Every 3 Months</h4>
+
+                    <p>Healthy adults can safely donate blood every three months.</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                <div class="fact-card">
+
+                    🏥
+
+                    <h4>Blood Cannot Be Manufactured</h4>
+
+                    <p>Blood is available only through generous donors.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+        Emergency Banner
+=========================== -->
+
+<section class="emergency-banner">
+
+    <div class="container text-center">
+
+        <h2>
+            Need Blood Urgently?
+        </h2>
+
+        <p>
+
+            Search hospitals or create a blood request instantly.
+
+        </p>
+
+        <a href="requests.html"
+            class="btn btn-light btn-lg">
+
+            Request Blood
+
+        </a>
+
+    </div>
+
+</section>
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-4">
+
+                <h3>❤️ LifeStream</h3>
+
+                <p>
+
+                    LifeStream connects blood donors, hospitals,
+                    and patients through one trusted platform.
+
+                </p>
+
+            </div>
+
+            <div class="col-lg-2">
+
+                <h5>Quick Links</h5>
+
+                <ul>
+
+                    <li><a href="#">Home</a></li>
+
+                    <li><a href="#">Donors</a></li>
+
+                    <li><a href="#">Hospitals</a></li>
+
+                    <li><a href="#">About</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <h5>Contact</h5>
+
+                <p>📍 Nashik, Maharashtra</p>
+
+                <p>📧 support@lifestream.com</p>
+
+                <p>📞 +91 9876543210</p>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <h5>Follow Us</h5>
+
+                <i class="fab fa-facebook fa-2x me-3"></i>
+                <i class="fab fa-instagram fa-2x me-3"></i>
+                <i class="fab fa-linkedin fa-2x"></i>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+
+            © 2026 LifeStream | All Rights Reserved
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
