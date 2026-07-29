@@ -39,6 +39,29 @@ const findUserByMobile = async (mobile) => {
 };
 
 /**
+ * Find user by email for login
+ */
+const findUserForLogin = async (email) => {
+
+    const sql = `
+        SELECT
+            user_id,
+            role_id,
+            full_name,
+            email,
+            password_hash,
+            is_active
+        FROM users
+        WHERE email = ?
+    `;
+
+    const [rows] = await db.execute(sql, [email]);
+
+    return rows.length > 0 ? rows[0] : null;
+
+};
+
+/**
  * Insert user into users table
  */
 const createUser = async (connection, userData) => {
@@ -212,6 +235,8 @@ module.exports = {
     findUserByEmail,
 
     findUserByMobile,
+
+    findUserForLogin,
 
     createUser,
 

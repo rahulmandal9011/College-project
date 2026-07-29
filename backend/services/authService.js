@@ -130,9 +130,69 @@ const registerUser = async (userData) => {
 
 };
 
+/**
+ * Login User
+ */
+const loginUser = async (loginData) => {
+
+    // Find user by email
+    const user = await userModel.findUserForLogin(loginData.email);
+
+    // Check user exists
+    if (!user) {
+
+        throw new Error("Invalid Email or Password.");
+
+    }
+
+    // Check account is active
+    if (user.is_active === 0) {
+
+        throw new Error("Your account has been deactivated.");
+
+    }
+
+    // Compare entered password with database password
+    const passwordMatched = await bcrypt.compare(
+
+        loginData.password,
+
+        user.password_hash
+
+    );
+
+    // Invalid password
+    if (!passwordMatched) {
+
+        throw new Error("Invalid Email or Password.");
+
+    }
+
+    // Return user details
+    return {
+
+        success: true,
+
+        message: "Login Successful",
+
+        user: {
+
+            user_id: user.user_id,
+
+            role_id: user.role_id,
+
+            full_name: user.full_name,
+
+            email: user.email
+
+        }
+
+    };
+
+};
+
 // Export service methods
 module.exports = {
-
-    registerUser
-
+    registerUser,
+    loginUser
 };

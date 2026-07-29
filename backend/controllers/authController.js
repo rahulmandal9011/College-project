@@ -59,9 +59,56 @@ const register = async (req, res) => {
 
 };
 
+/**
+ * Login User
+ */
+const login = async (req, res) => {
+
+    try {
+
+        // Get login data
+        const loginData = req.body;
+
+        // Call service
+        const result = await authService.loginUser(loginData);
+
+        // Send success response
+        return successResponse(
+
+            res,
+
+            result.message,
+
+            result.user,
+
+            200
+
+        );
+
+    }
+    catch (error) {
+
+        console.error("Login Error :", error.message);
+
+        return errorResponse(
+
+            res,
+
+            error.message,
+
+            401
+
+        );
+
+    }
+
+};
+
 // Export controller methods
 module.exports = {
 
-    register
+    register,
+
+    login
 
 };
