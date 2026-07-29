@@ -1,41 +1,20 @@
-// Password Show/Hide
+/******************************************************************************
+ * File Name    : login.js
+ * Description  : Login Page JavaScript
+ ******************************************************************************/
 
-const toggle = document.getElementById("togglePassword");
-const password = document.getElementById("password");
+document.getElementById("loginForm").addEventListener("submit", async function (event) {
 
-toggle.addEventListener("click", () => {
+    event.preventDefault();
 
-    if (password.type === "password") {
+    // Login data
+    const loginData = {
 
-        password.type = "text";
-        toggle.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+        email: document.getElementById("email").value,
 
-    } else {
+        password: document.getElementById("password").value
 
-        password.type = "password";
-        toggle.innerHTML = '<i class="fa-solid fa-eye"></i>';
-
-    }
-
-});
-
-// Login Form Submit
-
-document.getElementById("loginForm").addEventListener("submit", async (e) => {
-
-    e.preventDefault();
-
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
-
-    // Validation
-
-    if (email === "" || password === "") {
-
-        alert("Please enter Email and Password");
-        return;
-
-    }
+    };
 
     try {
 
@@ -49,42 +28,59 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
             },
 
-            body: JSON.stringify({
-
-                email,
-                password
-
-            })
+            body: JSON.stringify(loginData)
 
         });
 
-        const data = await response.json();
+        const result = await response.json();
 
-        if (data.success) {
+        alert(result.message);
 
-            // Save JWT Token
+        if (!result.success) {
 
-            localStorage.setItem("token", data.token);
-
-            // Save Logged-in User
-
-            localStorage.setItem("user", JSON.stringify(data.user));
-
-            alert("Login Successful");
-
-            window.location.href = "dashboard.html";
-
-        } else {
-
-            alert(data.message);
+            return;
 
         }
 
-    } catch (error) {
+        // Save user in browser session
+        sessionStorage.setItem(
 
-        console.log(error);
+            "loggedInUser",
 
-        alert("Unable to connect to server.");
+            JSON.stringify(result.data)
+
+        );
+
+        // Redirect according to role
+        switch (Number(result.data.role_id)) {
+
+            case 1:
+                window.location.href = "admin-dashboard.html";
+                break;
+
+            case 2:
+                window.location.href = "donor-dashboard.html";
+                break;
+
+            case 3:
+                window.location.href = "hospital-dashboard.html";
+                break;
+
+            case 4:
+                window.location.href = "patient-dashboard.html";
+                break;
+
+            default:
+                alert("Invalid Role");
+
+        }
+
+    }
+    catch (error) {
+
+        console.error(error);
+
+        alert("Server Error");
 
     }
 

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LifeStream | Donor Dashboard</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <div class="logo">
+
+            <h3>❤️ LifeStream</h3>
+
+            <small>Donor Panel</small>
+
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#">
+                    <i class="bi bi-speedometer2"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="bi bi-person-circle"></i>
+                    My Profile
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="bi bi-droplet-fill"></i>
+                    Donation History
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="bi bi-search"></i>
+                    Blood Requests
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="bi bi-gear-fill"></i>
+                    Settings
+                </a>
+            </li>
+
+            <li>
+                <a href="#" id="logoutBtn">
+                    <i class="bi bi-box-arrow-right"></i>
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- Topbar -->
+        <div class="topbar">
+
+            <h2>
+
+                Welcome,
+
+                <span id="userName"></span>
+
+            </h2>
+
+            <div class="top-icons">
+
+                <i class="bi bi-bell-fill"></i>
+
+                <img src="https://i.pravatar.cc/150?img=12"
+                    class="profile-img">
+
+            </div>
+
+        </div>
+
+        <!-- Cards -->
+        <div class="row mt-4">
+
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="dashboard-card">
+
+                    <div class="card-icon">
+
+                        <i class="bi bi-droplet-fill"></i>
+
+                    </div>
+
+                    <h2 id="bloodGroup">A+</h2>
+
+                    <p>Blood Group</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="dashboard-card">
+
+                    <div class="card-icon">
+
+                        <i class="bi bi-heart-pulse-fill"></i>
+
+                    </div>
+
+                    <h2 id="donationCount">0</h2>
+
+                    <p>Total Donations</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="dashboard-card">
+
+                    <div class="card-icon">
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                    </div>
+
+                    <h2 id="status">Available</h2>
+
+                    <p>Status</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="dashboard-card">
+
+                    <div class="card-icon">
+
+                        <i class="bi bi-envelope-fill"></i>
+
+                    </div>
+
+                    <h2 id="requestCount">0</h2>
+
+                    <p>Blood Requests</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Profile -->
+        <div class="card mt-3">
+
+            <div class="card-header bg-danger text-white">
+
+                My Profile
+
+            </div>
+
+            <div class="card-body">
+
+                <table class="table">
+
+                    <tr>
+
+                        <th>Name</th>
+
+                        <td id="profileName"></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>Email</th>
+
+                        <td id="profileEmail"></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>Role</th>
+
+                        <td>Donor</td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <!-- Donation History -->
+        <div class="card mt-4">
+
+            <div class="card-header bg-danger text-white">
+
+                Recent Donation History
+
+            </div>
+
+            <div class="card-body">
+
+                <table class="table table-bordered">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Date</th>
+
+                            <th>Hospital</th>
+
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td colspan="3" class="text-center">
+
+                                No Donation History Found
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Dashboard JS -->
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
