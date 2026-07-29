@@ -1,148 +1,224 @@
-/**
- * ==========================================================
- * Project : LifeStream
- * Module  : User Model
- * File    : userModel.js
- * Author  : Rahul Mandal
- *
- * Description:
- * This file handles ONLY database operations related
- * to the User table.
- *
- * No Business Logic
- * No Validation
- * No JWT
- * No Password Hashing
- * ==========================================================
- */
+/******************************************************************************
+ * File Name    : userModel.js
+ * Description  : Database operations for User Registration
+ ******************************************************************************/
 
-// Import Database Connection
-const db = require("../config/db");
+// Import MySQL connection pool
+const db = require("../Config/db");
 
 /**
- * ==========================================
- * Find User By Email
- * ==========================================
- *
- * Purpose:
- * Check whether the email already exists.
- *
- * Used In:
- * Register API
- * Login API
+ * Find user by email
  */
+const findUserByEmail = async (email) => {
 
-const findUserByEmail = (email) => {
+    const sql = `
+        SELECT user_id
+        FROM users
+        WHERE email = ?
+    `;
 
-    return new Promise((resolve, reject) => {
+    const [rows] = await db.execute(sql, [email]);
 
-        const sql = `
-            SELECT *
-            FROM users
-            WHERE email = ?
-        `;
+    return rows.length > 0 ? rows[0] : null;
+};
 
-        db.query(sql, [email], (err, result) => {
+/**
+ * Find user by mobile number
+ */
+const findUserByMobile = async (mobile) => {
 
-            if (err) {
-                return reject(err);
-            }
+    const sql = `
+        SELECT user_id
+        FROM users
+        WHERE mobile = ?
+    `;
 
-            resolve(result);
+    const [rows] = await db.execute(sql, [mobile]);
 
-        });
+    return rows.length > 0 ? rows[0] : null;
+};
 
-    });
+/**
+ * Insert user into users table
+ */
+const createUser = async (connection, userData) => {
+
+    const sql = `
+        INSERT INTO users
+        (
+            role_id,
+            country_id,
+            state_id,
+            city_id,
+            full_name,
+            email,
+            mobile,
+            password_hash,
+            gender,
+            date_of_birth,
+            address,
+            postal_code,
+            email_verified,
+            mobile_verified,
+            is_active
+        )
+        VALUES
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+
+    const [result] = await connection.execute(sql, [
+
+        userData.role_id,
+
+        null,      // country_id
+
+        null,      // state_id
+
+        null,      // city_id
+
+        userData.full_name,
+
+        userData.email,
+
+        userData.mobile,
+
+        userData.password_hash,
+
+        userData.gender,
+
+        userData.date_of_birth,
+
+        userData.address,
+
+        userData.postal_code,
+
+        0,
+
+        0,
+
+        1
+
+    ]);
+
+    return result.insertId;
 
 };
 
 /**
- * ==========================================
- * Create New User
- * ==========================================
- *
- * Purpose:
- * Save new user into database.
+ * Insert donor profile
  */
+const createDonorProfile = async (connection, userId, donorData) => {
 
-const createUser = (userData) => {
+    const sql = `
+        INSERT INTO donor_profiles
+        (
+            user_id,
+            blood_group_id,
+            weight,
+            height,
+            medical_conditions,
+            emergency_contact_name,
+            emergency_contact_number
+        )
+        VALUES
+        (?, ?, ?, ?, ?, ?, ?)
+    `;
 
-    return new Promise((resolve, reject) => {
+    await connection.execute(sql, [
 
-        const sql = `
-            INSERT INTO users
-            (name,email,password,phone,role)
-            VALUES (?,?,?,?,?)
-        `;
+        userId,
 
-        db.query(
+        donorData.blood_group_id,
 
-            sql,
+        donorData.weight,
 
-            [
-                userData.name,
-                userData.email,
-                userData.password,
-                userData.phone,
-                userData.role
-            ],
+        donorData.height,
 
-            (err, result) => {
+        donorData.medical_conditions,
 
-                if (err) {
-                    return reject(err);
-                }
+        donorData.emergency_contact_name,
 
-                resolve(result);
+        donorData.emergency_contact_number
 
-            }
-
-        );
-
-    });
+    ]);
 
 };
 
 /**
- * ==========================================
- * Find User By ID
- * ==========================================
+ * Insert hospital profile
  */
+const createHospitalProfile = async (connection, userId, hospitalData) => {
 
-const findUserById = (id) => {
+    const sql = `
+        INSERT INTO hospital_profiles
+        (
+            user_id,
+            hospital_name,
+            registration_number,
+            hospital_type
+        )
+        VALUES
+        (?, ?, ?, ?)
+    `;
 
-    return new Promise((resolve, reject) => {
+    await connection.execute(sql, [
 
-        const sql = `
-            SELECT *
-            FROM users
-            WHERE id = ?
-        `;
+        userId,
 
-        db.query(sql, [id], (err, result) => {
+        hospitalData.hospital_name,
 
-            if (err) {
-                return reject(err);
-            }
+        hospitalData.registration_number,
 
-            resolve(result);
+        hospitalData.hospital_type || "Private"
 
-        });
-
-    });
+    ]);
 
 };
 
 /**
- * ==========================================
- * Export Functions
- * ==========================================
+ * Insert patient profile
  */
+const createPatientProfile = async (connection, userId, patientData) => {
 
+    const sql = `
+        INSERT INTO patient_profiles
+        (
+            user_id,
+            blood_group_id,
+            disease,
+            doctor_name
+        )
+        VALUES
+        (?, ?, ?, ?)
+    `;
+
+    await connection.execute(sql, [
+
+        userId,
+
+        patientData.blood_group_id,
+
+        patientData.disease,
+
+        patientData.doctor_name
+
+    ]);
+
+};
+
+// Export all database functions
 module.exports = {
 
     findUserByEmail,
+
+    findUserByMobile,
+
     createUser,
-    findUserById
+
+    createDonorProfile,
+
+    createHospitalProfile,
+
+    createPatientProfile
 
 };

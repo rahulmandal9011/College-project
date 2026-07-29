@@ -1,156 +1,138 @@
-/**
- * ==========================================================
- * Project : LifeStream
- * Module  : Authentication Service
- * File    : authService.js
- *
- * Description:
- * Handles business logic for user registration and login.
- * ==========================================================
- */
+/******************************************************************************
+ * File Name    : authService.js
+ * Description  : Business Logic for Authentication
+ ******************************************************************************/
 
+// Import bcrypt for password hashing
+const bcrypt = require("bcrypt");
+
+// Import MySQL connection pool
+const db = require("../Config/db");
+
+// Import User Model
 const userModel = require("../models/userModel");
 
-const {
-    hashPassword,
-    comparePassword
-} = require("../utils/passwordUtil");
-
-const {
-    generateToken
-} = require("../utils/jwtUtil");
-
 /**
- * Register User
+ * Register New User
  */
+const registerUser = async (userData) => {
 
-const register = async (userData) => {
+    // Check email already exists
+    const emailExists = await userModel.findUserByEmail(userData.email);
 
-    const {
-        fullName,
-        email,
-        mobile,
-        password,
-        bloodGroup,
-        gender,
-        dob,
-        weight,
-        city,
-        state,
-        address,
-        lastDonationDate,
-        available
-    } = userData;
-
-    // Required fields
-    if (
-        !fullName ||
-        !email ||
-        !mobile ||
-        !password ||
-        !bloodGroup ||
-        !gender ||
-        !dob ||
-        !weight ||
-        !city ||
-        !state ||
-        !address
-    ) {
-        throw new Error("All fields are required.");
-    }
-
-    // Check email
-    const existingUser = await userModel.findUserByEmail(email);
-
-    if (existingUser.length > 0) {
+    if (emailExists) {
         throw new Error("Email already registered.");
     }
 
-    // Encrypt Password
-    const hashedPassword = await hashPassword(password);
+    // Check mobile already exists
+    const mobileExists = await userModel.findUserByMobile(userData.mobile);
 
-    // Save User
-    await userModel.createUser({
-
-        fullName,
-        email,
-        mobile,
-        password: hashedPassword,
-        bloodGroup,
-        gender,
-        dob,
-        weight,
-        city,
-        state,
-        address,
-        lastDonationDate,
-        available
-
-    });
-
-    return {
-
-        success: true,
-        message: "Registration Successful"
-
-    };
-
-};
-
-/**
- * Login User
- */
-const login = async (email, password) => {
-
-    if (!email || !password) {
-        throw new Error("Email and Password are required.");
+    if (mobileExists) {
+        throw new Error("Mobile number already registered.");
     }
 
-    // Find user
-    const users = await userModel.findUserByEmail(email);
+    // Encrypt password
+    const hashedPassword = await bcrypt.hash(userData.password, 10);
 
-    if (users.length === 0) {
-        throw new Error("Invalid Email.");
-    }
+    // Replace plain password with hashed password
+    userData.password_hash = hashedPassword;
 
-    const user = users[0];
+    // Open database transaction
+    const connection = await db.getConnection();
 
-    // Compare password
-    const validPassword = await comparePassword(
-        password,
-        user.password
-    );
+    try {
 
-    if (!validPassword) {
-        throw new Error("Invalid Password.");
-    }
+        // Begin transaction
+        await connection.beginTransaction();
 
-    // Generate JWT
-    const token = generateToken(user);
+        // Insert into users table
+        const userId = await userModel.createUser(connection, userData);
 
-    return {
+        // Donor Registration
+        if (Number(userData.role_id) === 2) {
 
-        success: true,
+            await userModel.createDonorProfile(connection, userId, {
 
-        message: "Login Successful",
+                blood_group_id: 1, // Temporary default value
 
-        token,
+                weight: userData.weight || null,
 
-        user: {
-            id: user.id,
-            name: user.name,
-            email: user.email,
-            role: user.role
+                height: userData.height || null,
+
+                medical_conditions: userData.medical_conditions || null,
+
+                emergency_contact_name: null,
+
+                emergency_contact_number: null
+
+            });
+
         }
 
-    };
+        // Hospital Registration
+        else if (Number(userData.role_id) === 3) {
+
+            await userModel.createHospitalProfile(connection, userId, {
+
+                hospital_name: userData.hospital_name,
+
+                registration_number: userData.registration_no,
+
+                hospital_type: "Private"
+
+            });
+
+        }
+
+        // Patient Registration
+        else if (Number(userData.role_id) === 4) {
+
+            await userModel.createPatientProfile(connection, userId, {
+
+                blood_group_id: 1, // Temporary default value
+
+                disease: userData.disease || null,
+
+                doctor_name: userData.doctor_name || null
+
+            });
+
+        }
+
+        // Save all records
+        await connection.commit();
+
+        return {
+
+            success: true,
+
+            message: "Registration Successful",
+
+            userId: userId
+
+        };
+
+    }
+    catch (error) {
+
+        // Undo all database changes
+        await connection.rollback();
+
+        throw error;
+
+    }
+    finally {
+
+        // Release database connection
+        connection.release();
+
+    }
 
 };
 
+// Export service methods
 module.exports = {
 
-    register,
-
-    login
+    registerUser
 
 };

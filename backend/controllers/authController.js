@@ -1,100 +1,67 @@
-/**
- * ==========================================================
- * Project : LifeStream
- * Module  : Authentication Controller
- * File    : authController.js
- * Author  : Rahul Mandal
- *
- * Description:
- * Handles Authentication Requests.
- * Controller only communicates between
- * Route and Service.
- * ==========================================================
- */
+/******************************************************************************
+ * File Name    : authController.js
+ * Description  : Authentication Controller
+ ******************************************************************************/
 
+// Import response utility
+const {
+    successResponse,
+    errorResponse
+} = require("../utils/response");
+
+// Import authentication service
 const authService = require("../services/authService");
 
 /**
- * ==========================================
- * Register User Controller
- * ==========================================
- * Method : POST
- * URL    : /api/auth/register
+ * Register New User
  */
-
-const registerUser = async (req, res) => {
+const register = async (req, res) => {
 
     try {
 
-        // Call Service Layer
-        const result = await authService.register(req.body);
+        // Get data from frontend request
+        const userData = req.body;
 
-        return res.status(201).json(result);
+        // Call service layer
+        const result = await authService.registerUser(userData);
 
-    } catch (error) {
+        // Send success response
+        return successResponse(
 
-        return res.status(400).json({
+            res,
 
-            success: false,
+            result.message,
 
-            message: error.message
+            {
+                userId: result.userId
+            },
 
-        });
-
-    }
-
-};
-
-/**
- * ==========================================
- * Login User Controller
- * ==========================================
- * Method : POST
- * URL    : /api/auth/login
- */
-
-const loginUser = async (req, res) => {
-
-    try {
-
-        const {
-
-            email,
-
-            password
-
-        } = req.body;
-
-        // Call Service Layer
-        const result = await authService.login(
-
-            email,
-
-            password
+            201
 
         );
 
-        return res.status(200).json(result);
+    }
+    catch (error) {
 
-    } catch (error) {
+        console.error("Registration Error :", error.message);
 
-        return res.status(401).json({
+        return errorResponse(
 
-            success: false,
+            res,
 
-            message: error.message
+            error.message,
 
-        });
+            400
+
+        );
 
     }
 
 };
 
-// Export Controller Functions
+// Export controller methods
 module.exports = {
 
-    registerUser,
-
-    loginUser
+    register
 
 };
