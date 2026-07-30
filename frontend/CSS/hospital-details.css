@@ -4,7 +4,7 @@ font-family:Poppins,sans-serif;
 }
 
 .banner-image{
-height:450px;
+height:fit-content;
 object-fit:cover;
 }
 

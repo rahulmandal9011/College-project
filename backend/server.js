@@ -21,11 +21,14 @@ const cookieParser = require("cookie-parser");
 
 const db = require("./Config/db");
 
+
 /* -------------------------------------------------------------------------- */
 /*                               Import Routes                                */
 /* -------------------------------------------------------------------------- */
 
 const authRoutes = require("./routes/authRoutes");
+// Donor Routes
+const donorRoutes = require("./Routes/donorRoutes");
 
 /* -------------------------------------------------------------------------- */
 /*                         Create Express Application                         */
@@ -99,6 +102,9 @@ app.get("/", (req, res) => {
  * http://localhost:5000/api/auth
  */
 app.use("/api/auth", authRoutes);
+
+// Donor APIs
+app.use("/api/donors", donorRoutes);
 
 /* -------------------------------------------------------------------------- */
 /*                              404 Error Handler                             */

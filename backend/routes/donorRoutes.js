@@ -1,23 +1,26 @@
-console.log("Donor Routes Loaded");
+/******************************************************************************
+ * File Name    : donorRoutes.js
+ * Description  : Donor Routes
+ ******************************************************************************/
+
+// Import Express
 const express = require("express");
+
+// Create Router
 const router = express.Router();
 
-const donorController = require("../controllers/donorController");
-const { verifyToken } = require("../middleware/authMiddleware");
+// Import Donor Controller
+const donorController = require("../Controllers/donorController");
 
-// Create Donor
-router.post("/", verifyToken, donorController.createDonor);
+/**
+ * GET
+ * Get All Donors
+ * URL : /api/donors
+ */
+router.get(
+    "/",
+    donorController.getAllDonors
+);
 
-// Get All Donors
-router.get("/", verifyToken, donorController.getAllDonors);
-
-// Get Donor By ID
-router.get("/:id", verifyToken, donorController.getDonorById);
-
-// Update Donor
-router.put("/:id", verifyToken, donorController.updateDonor);
-
-// Delete Donor
-router.delete("/:id", verifyToken, donorController.deleteDonor);
-
+// Export Router
 module.exports = router;
